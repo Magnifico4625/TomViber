@@ -2,6 +2,14 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [SemVer](https://semver.org/).
 
+## [0.4.2] — 2026-10-14
+
+### Fixed
+- `ok-N` is tagged only after committing everything the person approved (memory update included), then the dump.
+- Keys are written without the value in command text (set-key or stdin); never `printf`/`echo` with the value.
+- The agent always offers set-key and never asks to paste a key in chat; a key in chat is accepted only if the person sends it.
+- Key checks against external APIs stay allowed, with masked output.
+
 ## [0.4.1] — 2026-10-14
 
 Findings from a Linux test (opencode + free model).

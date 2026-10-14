@@ -16,7 +16,7 @@
    EN: "Done: [piece]. I checked: [...]. Your turn: [action], you should see [result]. If not, send a screenshot or the error text. All good? Reply "ok"."
    RU: «Готово: [кусок]. Проверил я: [...]. Твоя очередь: [действие], должно [результат]. Иначе — скинь скриншот или текст ошибки. Всё ок — напиши "ок"».
    Mode 1: after a finished screen/feature, not every small change.
-4. After "ok"/«ок»: tag `ok-N`; local SQLite → dump `backups/ok-N.db` (keep last 5); `MEMORY.md` → "Where we stopped", 3 lines.
+4. After "ok"/«ок»: update `MEMORY.md` → "Where we stopped" (3 lines), commit everything approved, THEN tag `ok-N` on that commit; local SQLite → dump `backups/ok-N.db` (keep last 5).
 5. Person's correction: first a rule in `MEMORY.md` → "Pitfalls", then code. "Also let's…" → `MEMORY.md` → "Later".
 
 ## PANIC / undo / revert («ПАНИКА», «откат», «верни как было»; any case)
@@ -52,10 +52,10 @@ RU: «Со 2-й попытки не получилось. Рекомендую �
 
 ## Keys
 - Only in `.env` (+ `.env.example` without values). Never in code, commits, `MEMORY.md`.
-- All keys entered via `set-key.bat` / `set-key.command` (`chmod +x`): window opens, paste key, script writes `.env`.
-- Key pasted in chat anyway → don't scold, insert it; for a paid key suggest reissuing later.
+- All keys entered via `set-key.bat` / `set-key.command` (`chmod +x`): window opens, paste key, script writes `.env`. When you need a key, offer set-key — never ask to paste it in chat.
+- Key pasted in chat by the person → don't scold, insert it; for a paid key suggest reissuing later. Write it so the value never appears in command text (stdin, e.g. `python -c` reading `sys.stdin`) — never `printf`/`echo` with the value.
 - After writing a key, check `.env` has a non-empty `NAME=` line (e.g. `grep -c '^NAME=.' .env`), never print the value. Never say a key is saved without this check.
-- Never show raw run/log output that may contain a key: mask keys as `***`; prefer running with output filtered.
+- Never show raw run/log output that may contain a key (incl. API checks of the key): mask as `***`; filter output.
 
 ## Packages
 Before installing a new package, check the registry (creation date, downloads, repo link). Suspiciously new or obscure → not without the person knowing.

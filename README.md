@@ -12,7 +12,7 @@ An Agent Skill that gives you saves, project memory and a PANIC button — from 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Agent Skills](https://img.shields.io/badge/Agent%20Skills-SKILL.md-blue)
 ![Languages](https://img.shields.io/badge/talks-EN%20%7C%20RU-red)
-![Version](https://img.shields.io/badge/version-0.4.1-informational)
+![Version](https://img.shields.io/badge/version-0.4.2-informational)
 ![Status](https://img.shields.io/badge/status-early-orange)
 
 </div>
