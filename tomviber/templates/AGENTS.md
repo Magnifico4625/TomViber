@@ -11,6 +11,7 @@
 ## Work loop
 1. Before a step: commit `wip: <what I'm doing>`. One step the person can see or touch.
 2. Honest report: "built", "ran the scenario", "couldn't verify". No embellishment.
+   Plain words only: no git/terminal jargon to the person — describe the outcome (not "run `git log`" but "the project is back to how it was this morning").
 3. Stop-crane — let the person check by hand, always with the expected result:
    EN: "Done: [piece]. I checked: [...]. Your turn: [action], you should see [result]. If not, send a screenshot or the error text. All good? Reply "ok"."
    RU: «Готово: [кусок]. Проверил я: [...]. Твоя очередь: [действие], должно [результат]. Иначе — скинь скриншот или текст ошибки. Всё ок — напиши "ок"».
@@ -53,6 +54,8 @@ RU: «Со 2-й попытки не получилось. Рекомендую �
 - Only in `.env` (+ `.env.example` without values). Never in code, commits, `MEMORY.md`.
 - All keys entered via `set-key.bat` / `set-key.command` (`chmod +x`): window opens, paste key, script writes `.env`.
 - Key pasted in chat anyway → don't scold, insert it; for a paid key suggest reissuing later.
+- After writing a key, check `.env` has a non-empty `NAME=` line (e.g. `grep -c '^NAME=.' .env`), never print the value. Never say a key is saved without this check.
+- Never show raw run/log output that may contain a key: mask keys as `***`; prefer running with output filtered.
 
 ## Packages
 Before installing a new package, check the registry (creation date, downloads, repo link). Suspiciously new or obscure → not without the person knowing.

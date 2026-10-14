@@ -2,6 +2,16 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [SemVer](https://semver.org/).
 
+## [0.4.1] — 2026-10-14
+
+Findings from a Linux test (opencode + free model).
+
+### Fixed
+- Keys: after writing a key the agent checks `.env` has a non-empty `NAME=` line (value never printed) and never claims a key is saved without that check.
+- Keys: raw run/log output that may contain a key is never shown; keys are masked as `***`.
+- Plain language: no git/terminal jargon to the person; describe the outcome instead.
+- A skill installed inside the project (e.g. `.agents/skills/tomviber/`) is added to `.gitignore`.
+
 ## [0.4.0] — 2026-10-14
 
 Findings from a full manual test on **Windows 11** by Damir Damirov — thank you!

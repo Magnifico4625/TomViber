@@ -11,7 +11,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Agent Skills](https://img.shields.io/badge/Agent%20Skills-SKILL.md-blue)
-![Version](https://img.shields.io/badge/version-0.4.0-informational)
+![Version](https://img.shields.io/badge/version-0.4.1-informational)
 ![Status](https://img.shields.io/badge/status-early-orange)
 
 </div>
