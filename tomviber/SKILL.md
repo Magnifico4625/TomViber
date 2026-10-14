@@ -19,7 +19,7 @@ Templates live in `<skill-path>/templates/`, where `<skill-path>` is the folder 
 **Phase order:** 0 → 1 → (2, if needed) → (3, mode 3 only) → 4 → 5.
 
 ## Language
-- Detect the person's language from their messages and talk to them in it. Canned phrases below are given in EN and RU; for other languages translate them naturally if you can.
+- Detect the person's language from their messages and talk to them in it. Canned phrases are tagged `[if English]` / `[if Russian]`: say only the one matching the person's language, never mix labels from the other (no «Готово (done):»); for other languages translate naturally if you can.
 - Files generated into the person's project (`MEMORY.md`, `ARCHITECTURE.md`, checklist, filled-in parts of `AGENTS.md`) are written in the person's language. Commit messages are in English.
 
 ## Tone
@@ -61,8 +61,8 @@ Templates live in `<skill-path>/templates/`, where `<skill-path>` is the folder 
 ## Phase 1. Idea retell + mode (ONE message, ONE confirmation)
 No questionnaire. Pick the mode yourself and propose it together with the retell — this catches the #1 cause of bad vibe coding: the person and the AI understand the task differently.
 
-> EN: "Here's how I understand it: [what it does] for [whom]. I suggest **[mode]**: [one phrase]. I'm setting up the safety net right away (saves, project memory, a PANIC button). When you want to show it to people, say "MVP" or "serious". Did I get the idea right?"
-> RU: «Понял так: [что делает] для [кого]. Предлагаю формат **[режим]**: [одна фраза]. Страховку (сохранения, память проекта, кнопка ПАНИКА) ставлю сразу. Захочешь показать людям, скажи "MVP" или "всерьёз". Верно понял идею?»
+> [if English] "Here's how I understand it: [what it does] for [whom]. I suggest **[mode]**: [one phrase]. I'm setting up the safety net right away (saves, project memory, a PANIC button). When you want to show it to people, say "MVP" or "serious". Did I get the idea right?"
+> [if Russian] «Понял так: [что делает] для [кого]. Предлагаю формат **[режим]**: [одна фраза]. Страховку (сохранения, память проекта, кнопка ПАНИКА) ставлю сразу. Захочешь показать людям, скажи "MVP" или "всерьёз". Верно понял идею?»
 
 Modes (internal; explain to the person in plain words):
 1. **Evening prototype.** All local, no servers or sign-ups; SQLite/files. Docs: `AGENTS.md`, `MEMORY.md`. No expedition. Stop-crane after a finished screen/feature.
@@ -87,7 +87,7 @@ Deliver 2–3 sentences on what you found and why, plus one alternative with pro
 ---
 
 ## Phase 3. Safety belt (mode 3 or on request)
-Show `templates/belt-checklist.md` and say: "If all good, reply **"ok"** or name the numbers to remove" / «Если всё ок, напиши **"ок"** или назови номера, которые убрать». Wait.
+Show `templates/belt-checklist.md` and say: [if English] "If all good, reply **"ok"** or name the numbers to remove" / [if Russian] «Если всё ок, напиши **"ок"** или назови номера, которые убрать». Wait.
 
 ---
 
@@ -96,15 +96,15 @@ Show `templates/belt-checklist.md` and say: "If all good, reply **"ok"** or name
 2. **Keys:** `.env.example` + working `.env` with safe defaults so the project runs **immediately without sign-ups**. **Every** external key goes through `set-key.bat` / `set-key.command`: give a direct link, say which button to press, ask the person to double-click the script and paste the key. Never ask the person to paste a key in chat. If they paste one anyway — don't scold, insert it without the value appearing in command text (stdin), and for a paid key suggest reissuing it later.
 3. **Start button:** `start.bat` / `start.command` (+ `chmod +x`, otherwise double-click won't work on Mac) and a `package.json` script. No backups at startup.
 4. **Docs:** `AGENTS.md` (with marker) and `MEMORY.md`; for Claude Code also `CLAUDE.md` containing the single line `@AGENTS.md`; modes 2–3 — `ARCHITECTURE.md`.
-5. **Data:** dump and migration rules are in `AGENTS.md` (dump at `ok-N`, last 5; additive migrations only; SQLite via the language API). Tell the person once: "copy `backups/` outside the project folder once a week" / «раз в неделю копируй `backups/` за пределы папки проекта».
+5. **Data:** dump and migration rules are in `AGENTS.md` (dump at `ok-N`, last 5; additive migrations only; SQLite via the language API). Tell the person once: [if English] "copy `backups/` outside the project folder once a week" / [if Russian] «раз в неделю копируй `backups/` за пределы папки проекта».
 6. **First real step:** a small but genuinely working piece of the idea (no empty stubs), run it → Phase 5.
 
 ---
 
 ## Phase 5. Autopilot
 Work strictly by the project's `AGENTS.md`: loop, stop-crane, PANIC, two attempts, data, keys, packages. It is the single source of truth. On first run tell the person:
-> EN: "If anything breaks, just write "PANIC" — I'll restore the last working state and save the current one separately."
-> RU: «Если всё сломается, напиши "ПАНИКА" — верну к последнему рабочему состоянию, текущее сохраню отдельно».
+> [if English] "If anything breaks, just write "PANIC" — I'll restore the last working state and save the current one separately."
+> [if Russian] «Если всё сломается, напиши "ПАНИКА" — верну к последнему рабочему состоянию, текущее сохраню отдельно».
 
 ---
 

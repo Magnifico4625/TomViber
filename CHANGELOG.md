@@ -2,6 +2,12 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [SemVer](https://semver.org/).
 
+## [0.4.3] — 2026-10-14
+
+### Fixed
+- Canned phrases are tagged `[if English]` / `[if Russian]`; the agent uses only the one matching the person's language and never mixes labels (seen in an English demo run: «Готово (done):»).
+- After a rollback the agent reports only facts it just checked (`git log`, `ls`, `.env` key lines), no guesses.
+
 ## [0.4.2] — 2026-10-14
 
 ### Fixed

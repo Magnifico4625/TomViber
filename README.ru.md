@@ -15,7 +15,7 @@ Agent Skill: страховка, память проекта и кнопка «�
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Agent Skills](https://img.shields.io/badge/Agent%20Skills-SKILL.md-blue)
 ![Lang](https://img.shields.io/badge/talks-EN%20%7C%20RU-red)
-![Version](https://img.shields.io/badge/version-0.4.2-informational)
+![Version](https://img.shields.io/badge/version-0.4.3-informational)
 ![Status](https://img.shields.io/badge/status-early-orange)
 
 </div>
