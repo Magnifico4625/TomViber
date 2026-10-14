@@ -6,6 +6,9 @@
 
 <p align="center"><img src="assets/tomviber-hero.jpg" alt="TomViber" width="100%"></p>
 
+<p align="center"><img src="assets/tomviber-demo.gif" alt="TomViber demo: real session" width="100%"></p>
+<p align="center"><a href="assets/tomviber-demo.mp4"><b>▶ Watch the full demo (77 s, with sound)</b></a></p>
+
 **A tech-lead mentor for vibe coders who don't read code.**
 An Agent Skill that gives you saves, project memory and a PANIC button — from the very first commit.
 

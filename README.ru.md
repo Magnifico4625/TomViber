@@ -6,6 +6,9 @@
 
 <p align="center"><img src="assets/tomviber-hero.jpg" alt="TomViber" width="100%"></p>
 
+<p align="center"><img src="assets/tomviber-demo.gif" alt="Демо TomViber: реальная сессия" width="100%"></p>
+<p align="center"><a href="assets/tomviber-demo.mp4"><b>▶ Смотреть полное демо (77 с, со звуком)</b></a></p>
+
 **Техлид-ментор для вайб-кодеров, которые не читают код.**
 Agent Skill: страховка, память проекта и кнопка «ПАНИКА» — с первого коммита.
 

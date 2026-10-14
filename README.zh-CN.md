@@ -6,6 +6,9 @@
 
 <p align="center"><img src="assets/tomviber-hero.jpg" alt="TomViber" width="100%"></p>
 
+<p align="center"><img src="assets/tomviber-demo.gif" alt="TomViber 演示：真实会话" width="100%"></p>
+<p align="center"><a href="assets/tomviber-demo.mp4"><b>▶ 观看完整演示（77 秒，有声音）</b></a></p>
+
 **为不读代码的 vibe coder 准备的技术负责人导师。**
 一个 Agent Skill：从第一次提交起就为你提供存档、项目记忆和"紧急回滚"按钮。
 
