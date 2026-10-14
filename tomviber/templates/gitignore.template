@@ -7,6 +7,11 @@
 *.key
 # Сессии Telegram-юзерботов: это полный доступ к аккаунту
 *.session
+# Google/OAuth ключи
+credentials.json
+token.json
+client_secret*.json
+service-account*.json
 
 # Данные не живут в git (миграции *.sql НЕ игнорируем)
 *.db
@@ -17,9 +22,13 @@
 *.db-shm
 data/
 backups/
+uploads/
 
 # Зависимости и мусор
 node_modules/
+dist/
+build/
+.next/
 __pycache__/
 .venv/
 .DS_Store

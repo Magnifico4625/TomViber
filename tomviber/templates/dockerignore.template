@@ -1,0 +1,18 @@
+# Режим 3: скопируй в корень как .dockerignore, чтобы COPY . . не запёк ключи и данные в образ
+.env
+.env.*
+!.env.example
+.git
+*.session
+*.pem
+*.key
+credentials.json
+token.json
+client_secret*.json
+service-account*.json
+data/
+backups/
+uploads/
+node_modules/
+*.db
+*.sqlite*

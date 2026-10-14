@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🐱 vibe-architect
+# 🐱 TomViber
 
 **Техлид-ментор для вайб-кодеров, которые не читают код.**
 Agent Skill: страховка, память проекта и кнопка «ПАНИКА» — с первого коммита.
@@ -8,85 +8,86 @@ Agent Skill: страховка, память проекта и кнопка «�
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Agent Skills](https://img.shields.io/badge/Agent%20Skills-SKILL.md-blue)
 ![Lang](https://img.shields.io/badge/lang-RU-red)
-![Version](https://img.shields.io/badge/version-0.1.0-informational)
+![Version](https://img.shields.io/badge/version-0.2.0-informational)
+![Status](https://img.shields.io/badge/status-early-orange)
 
 </div>
 
-## Что это
+## Было → стало
 
-`vibe-architect` — навык (Agent Skill) для ИИ-агентов вроде Claude Code, Cursor и Codex. Он превращает агента в спокойного техлида, который:
+| Без TomViber | С TomViber |
+|---|---|
+| Агент «чуть-чуть поправил» и снёс полпроекта. Что было вчера — неизвестно. | Пишешь **ПАНИКА** → проект вернулся к последнему рабочему состоянию, а сломанная версия лежит отдельно. Ничего не пропало. |
+| Ключ от бота уехал на GitHub. | Ключи вводятся через окошко и живут в `.env`, который git не видит. |
+| Завтра агент не помнит, что делали вчера. | `MEMORY.md`: где остановились, что дальше, какие грабли. |
+| «Всё работает!» — а оно не запускается. | Честный отчёт: «собрал», «прогнал», «проверить не смог» + что проверить тебе. |
 
-- **пересказывает идею** и предлагает масштаб: прототип на вечер / живой MVP / всерьёз;
-- **ставит страховку** сразу: git-сохранения, теги `ok-N`, `.gitignore`, который не пустит ключи и базы в историю;
-- **ведёт короткими шагами** со стоп-краном и честным отчётом «что проверил я / что проверь ты»;
-- **откатывает по слову «ПАНИКА»**, сохраняя текущее состояние в ветку `rescue-*` — ничего не пропадает;
-- **оставляет память проекта** (`AGENTS.md`, `MEMORY.md`), чтобы завтра любой агент продолжил с того же места.
+## Установка за минуту
 
-## Для кого
+**Проще всего:** напиши своему агенту одну фразу:
 
-Для людей без опыта в программировании, которые делают проекты с ИИ: Telegram-боты, сайты, скрипты, MVP. И для тех, кто пришёл с уже готовой «кашей» — скилл наведёт порядок, ничего не сломав.
+> Установи скилл по ссылке https://github.com/Magnifico4625/TomViber
 
-## Как работает
+**Или вручную:** [скачай ZIP](https://github.com/Magnifico4625/TomViber/archive/refs/heads/main.zip), распакуй и положи папку `tomviber/` в каталог навыков:
 
-```
-0 Осмотр → 1 Идея + режим → (2 Подбор библиотек) → (3 Защитный пояс) → 4 Сборка → 5 Автопилот
-                                                                     ↘ 6 Перед показом людям
-```
-
-После первого запуска правила живут в `AGENTS.md` проекта — скилл больше не нужен для обычной работы. Он снова включается, когда вы хотите показать проект людям, выложить его или «сделать серьёзнее».
-
-## Установка
-
-Скопируйте папку `vibe-architect/` (с `SKILL.md` и `templates/`) в каталог навыков вашего агента.
-
-| Агент | Глобально (для всех проектов) | Только для проекта |
+| Агент | Для всех проектов | Только для проекта |
 |---|---|---|
-| Claude Code | `~/.claude/skills/vibe-architect/` | `.claude/skills/vibe-architect/` |
-| Cursor | `~/.cursor/skills/vibe-architect/` или `~/.agents/skills/…` | `.cursor/skills/…` или `.agents/skills/…` |
-| Codex | `~/.agents/skills/vibe-architect/` | `.agents/skills/vibe-architect/` |
-| Другие агенты со стандартом Agent Skills | обычно `~/.agents/skills/` | `.agents/skills/` |
+| Claude Code | `~/.claude/skills/tomviber/` | `.claude/skills/tomviber/` |
+| Cursor | `~/.cursor/skills/tomviber/` или `~/.agents/skills/tomviber/` | `.cursor/skills/…` или `.agents/skills/…` |
+| Codex | `~/.agents/skills/tomviber/` | `.agents/skills/tomviber/` |
+| Другие агенты с Agent Skills | обычно `~/.agents/skills/` | `.agents/skills/` |
+
+<details>
+<summary>Через терминал</summary>
 
 ```bash
-git clone https://github.com/Magnifico4625/vibe-architect.git
-# универсальный путь (Codex, Cursor, Copilot и др.)
-mkdir -p ~/.agents/skills && cp -r vibe-architect/vibe-architect ~/.agents/skills/
-# Claude Code
-mkdir -p ~/.claude/skills && cp -r vibe-architect/vibe-architect ~/.claude/skills/
+git clone https://github.com/Magnifico4625/TomViber.git
+mkdir -p ~/.agents/skills && cp -r TomViber/tomviber ~/.agents/skills/   # Codex, Cursor, др.
+mkdir -p ~/.claude/skills && cp -r TomViber/tomviber ~/.claude/skills/   # Claude Code
 ```
-
-Windows (PowerShell):
 
 ```powershell
-git clone https://github.com/Magnifico4625/vibe-architect.git
-Copy-Item -Recurse vibe-architect\vibe-architect "$HOME\.agents\skills\vibe-architect"
+git clone https://github.com/Magnifico4625/TomViber.git
+Copy-Item -Recurse TomViber\tomviber "$HOME\.agents\skills\tomviber"
 ```
+</details>
 
-Затем просто напишите агенту: «Хочу сделать бота, который…» — скилл подхватится сам.
+## Первое сообщение
+
+> Хочу Telegram-бота, который каждое утро присылает мне погоду и курс доллара. Я не программист.
+
+Агент перескажет идею, предложит формат («прототип на вечер»), сам поставит страховку и начнёт с первого работающего кусочка.
+
+## FAQ
+
+**У меня нет git.** Агент предложит поставить его (на Windows — одной командой). Если нельзя — будет делать копии папки с датой.
+
+**Работает на Windows?** Да: запуск и ввод ключей — через `.bat`-файлы двойным кликом. На Mac — `.command`.
+
+**Как понять, что скилл включился?** В корне проекта появится `AGENTS.md`, первая строка — `<!-- tomviber v1 -->`. Агент сначала перескажет идею, а не бросится писать код.
+
+**Куда делись правила потом?** В `AGENTS.md` проекта. Скилл нужен для старта и перед показом людям, дальше агент работает по этому файлу.
+
+## Статус
+
+Ранняя версия. **Пока ни на одном агенте не протестировано систематически** — будем рады issue с вашим опытом (Claude Code, Cursor, Codex и др.).
 
 ## Структура
 
 ```
-vibe-architect/
-├── SKILL.md                 # инструкции для агента
+tomviber/
+├── SKILL.md
 └── templates/
-    ├── AGENTS.md            # правила проекта: цикл, ПАНИКА, две попытки
-    ├── MEMORY.md            # память: где остановились, грабли, потом
-    ├── ARCHITECTURE.md      # для режимов 2–3
-    ├── belt-checklist.md    # «защитный пояс» (режим 3)
-    ├── infra-notes.md       # хостинг, базы и подводные камни
-    └── gitignore.template   # → .gitignore при копировании
+    ├── AGENTS.md              # правила проекта: цикл, ПАНИКА, данные, ключи
+    ├── MEMORY.md  ARCHITECTURE.md  belt-checklist.md  infra-notes.md
+    ├── gitignore.template     # → .gitignore
+    ├── dockerignore.template  # → .dockerignore (режим 3)
+    └── set-key.bat / set-key.command   # ввод ключа в .env
 ```
-
-## Принципы
-
-- **Данные не живут в git.** Базы, `data/`, `backups/`, `.env`, сессии — в `.gitignore`; в git только миграции.
-- **Один источник правды.** Правила работы — в `AGENTS.md` проекта, а не в голове модели.
-- **Деньги и публикация — только с явного «да»** и названной ценой.
-- **Честность важнее красоты:** «проверить не смог» лучше, чем «всё работает».
 
 ## English summary
 
-**vibe-architect** is a Russian-language [Agent Skill](https://agentskills.io) that turns your coding agent (Claude Code, Cursor, Codex, …) into a pragmatic tech lead for non-programmers. It restates the idea, picks a scope (prototype / MVP / serious), installs a safety net from the first commit (git snapshots with `ok-N` tags, a strict `.gitignore`, a "PANIC" rollback that preserves state in a `rescue-*` branch), and drives development in small verifiable steps with honest status reports. Project rules live in a generated `AGENTS.md`, so any agent can pick up tomorrow where you left off. Install by copying `vibe-architect/` into `~/.agents/skills/` or `~/.claude/skills/`.
+**TomViber** is a Russian-language [Agent Skill](https://agentskills.io) that turns your coding agent (Claude Code, Cursor, Codex, …) into a pragmatic tech lead for non-programmers. It restates the idea, picks a scope, installs a safety net from the first commit (git snapshots with `ok-N` tags, strict `.gitignore`, a "PANIC" rollback that keeps current state in a `rescue-*` branch, additive-only migrations, SQLite dumps per checkpoint, key entry via a local script) and works in small verifiable steps with honest reports. Project rules live in a generated `AGENTS.md`. Install: copy `tomviber/` into `~/.agents/skills/` or `~/.claude/skills/`. Early stage, not yet systematically tested.
 
 ## Лицензия
 
