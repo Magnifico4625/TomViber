@@ -1,0 +1,26 @@
+# Скопируй в корень проекта как .gitignore
+# Секреты
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Сессии Telegram-юзерботов: это полный доступ к аккаунту
+*.session
+
+# Данные не живут в git (миграции *.sql НЕ игнорируем)
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+data/
+backups/
+
+# Зависимости и мусор
+node_modules/
+__pycache__/
+.venv/
+.DS_Store
+*.log
