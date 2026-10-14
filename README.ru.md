@@ -4,6 +4,8 @@
 
 # 🐱 TomViber
 
+<p align="center"><img src="assets/tomviber-hero.jpg" alt="TomViber" width="100%"></p>
+
 **Техлид-ментор для вайб-кодеров, которые не читают код.**
 Agent Skill: страховка, память проекта и кнопка «ПАНИКА» — с первого коммита.
 

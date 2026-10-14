@@ -4,6 +4,8 @@
 
 # 🐱 TomViber
 
+<p align="center"><img src="assets/tomviber-hero.jpg" alt="TomViber" width="100%"></p>
+
 **为不读代码的 vibe coder 准备的技术负责人导师。**
 一个 Agent Skill：从第一次提交起就为你提供存档、项目记忆和"紧急回滚"按钮。
 
