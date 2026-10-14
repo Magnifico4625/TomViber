@@ -31,7 +31,10 @@ git commit --allow-empty -m "rescue: state before rollback"
 git switch <main-branch>
 git tag -l 'ok-*' --sort=-v:refname
 git reset --hard <latest-ok-tag>
+git clean -fd
 ```
+- `git clean -fd` removes leftover junk (it's already saved in `rescue-*`). Never `-x`: ignored `.env`, `data/`, `backups/` must survive.
+- No `ok-*` tags yet → never run reset with an empty tag: use the first commit (`git rev-list --max-parents=0 HEAD`); no commits at all → tell the person there are no saves yet.
 - Start the project; report in one sentence: where you rolled back to, what's in `rescue-*`, whether the DB is affected.
 - Code rollback doesn't touch the DB. DB restore: first save current DB to `backups/rescue-<time>`, then restore the dump. In an MVP with real users this is the ONLY case where PANIC asks first.
 

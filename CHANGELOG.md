@@ -2,6 +2,20 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [SemVer](https://semver.org/).
 
+## [0.4.0] — 2026-10-14
+
+Findings from a full manual test on **Windows 11** by Damir Damirov — thank you!
+
+### Fixed
+- `SKILL.md`: templates are copied from `<skill-path>/templates/`; the agent first locates where the skill is mounted (project or home `.agents` / `.claude` / `.cursor` / `.codex` skills folders).
+- PANIC: after `reset --hard`, `git clean -fd` removes leftover untracked junk (already saved in `rescue-*`). Never `-x`, so ignored `.env`, `data/`, `backups/` survive.
+- PANIC with no `ok-*` tags: roll back to the first commit, or tell the person there are no saves yet; never reset to an empty tag.
+- `set-key.bat`: key name is escaped with `[regex]::Escape` when replacing an existing line.
+- Line endings: `.gitattributes` forces LF for `*.command` / `*.sh` (CRLF for `.bat`/`.cmd`).
+
+### Added
+- `templates/gitattributes.template`, copied in Phase 4.
+
 ## [0.3.0] — 2026-10-14
 
 ### Changed

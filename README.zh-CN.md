@@ -11,7 +11,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Agent Skills](https://img.shields.io/badge/Agent%20Skills-SKILL.md-blue)
-![Version](https://img.shields.io/badge/version-0.3.0-informational)
+![Version](https://img.shields.io/badge/version-0.4.0-informational)
 ![Status](https://img.shields.io/badge/status-early-orange)
 
 </div>
@@ -63,7 +63,7 @@ AI 会先复述你的想法，建议一个规模（"一晚上的原型"），在
 
 ## 状态
 
-早期版本，**尚未在任何 AI 工具上做过系统测试**。欢迎通过 issue 分享你的使用体验。
+早期版本，**已在 Windows 11 上完成端到端手动测试**（v0.3，包括紧急回滚）。其他平台和工具尚未系统测试。欢迎通过 issue 分享你的使用体验。
 
 ## 许可证
 

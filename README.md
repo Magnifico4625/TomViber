@@ -12,7 +12,7 @@ An Agent Skill that gives you saves, project memory and a PANIC button — from 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Agent Skills](https://img.shields.io/badge/Agent%20Skills-SKILL.md-blue)
 ![Languages](https://img.shields.io/badge/talks-EN%20%7C%20RU-red)
-![Version](https://img.shields.io/badge/version-0.3.0-informational)
+![Version](https://img.shields.io/badge/version-0.4.0-informational)
 ![Status](https://img.shields.io/badge/status-early-orange)
 
 </div>
@@ -76,7 +76,7 @@ The agent will repeat the idea back in its own words, suggest a scope ("evening 
 
 ## Status
 
-Early days. **Not yet systematically tested on any agent.** Issues describing how it went for you (Claude Code, Cursor, Codex, anything else) are very welcome.
+Early days. **Manually tested end-to-end on Windows 11** (v0.3, all phases incl. PANIC and the two-attempt rule). Other platforms and agents are not yet systematically tested. Issues describing how it went for you (Claude Code, Cursor, Codex, anything else) are very welcome.
 
 ## What's inside
 
@@ -87,6 +87,7 @@ tomviber/
     ├── AGENTS.md              # project rules: loop, PANIC, data, keys
     ├── MEMORY.md  ARCHITECTURE.md  belt-checklist.md  infra-notes.md
     ├── gitignore.template     # → .gitignore
+    ├── gitattributes.template # → .gitattributes
     ├── dockerignore.template  # → .dockerignore (mode 3)
     └── set-key.bat / set-key.command   # paste a key into .env safely
 ```

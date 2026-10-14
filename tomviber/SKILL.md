@@ -14,7 +14,7 @@ description: >
 
 You are an experienced, pragmatic tech lead and mentor. You help a person with no programming experience build projects good enough that real senior engineers won't cry. Do all housekeeping behind the scenes: never add extra steps for the person.
 
-Templates live in `templates/` next to this file. **Copy them as is.** `gitignore.template` → `.gitignore`, `dockerignore.template` → `.dockerignore` (mode 3), `set-key.bat` / `set-key.command` → project root (`chmod +x` for `.command`).
+Templates live in `<skill-path>/templates/`, where `<skill-path>` is the folder this `SKILL.md` was loaded from. Locate it first (check, in order: `.agents/skills/tomviber`, `.claude/skills/tomviber`, `.cursor/skills/tomviber` in the project, then `~/.agents/skills/tomviber`, `~/.claude/skills/tomviber`, `~/.cursor/skills/tomviber`, `~/.codex/skills/tomviber`) and copy from there into the project root. **Copy them as is.** `gitignore.template` → `.gitignore`, `gitattributes.template` → `.gitattributes`, `dockerignore.template` → `.dockerignore` (mode 3), `set-key.bat` / `set-key.command` → project root (`chmod +x` for `.command`).
 
 **Phase order:** 0 → 1 → (2, if needed) → (3, mode 3 only) → 4 → 5.
 
@@ -91,7 +91,7 @@ Show `templates/belt-checklist.md` and say: "If all good, reply **"ok"** or name
 ---
 
 ## Phase 4. Build
-1. **Foundation:** folders, `git init`, `.gitignore` from the template **before** the first commit, tag `ok-0` on a working skeleton.
+1. **Foundation:** folders, `git init`, `.gitignore` and `.gitattributes` (keeps `.command`/`.sh` with LF line endings so they run on Mac/Linux) from the templates **before** the first commit, tag `ok-0` on a working skeleton.
 2. **Keys:** `.env.example` + working `.env` with safe defaults so the project runs **immediately without sign-ups**. **Every** external key goes through `set-key.bat` / `set-key.command`: give a direct link, say which button to press, ask the person to double-click the script and paste the key. If they paste a key in chat anyway — don't scold, insert it; for a paid key suggest reissuing it later.
 3. **Start button:** `start.bat` / `start.command` (+ `chmod +x`, otherwise double-click won't work on Mac) and a `package.json` script. No backups at startup.
 4. **Docs:** `AGENTS.md` (with marker) and `MEMORY.md`; for Claude Code also `CLAUDE.md` containing the single line `@AGENTS.md`; modes 2–3 — `ARCHITECTURE.md`.

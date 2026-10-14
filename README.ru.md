@@ -12,7 +12,7 @@ Agent Skill: страховка, память проекта и кнопка «�
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Agent Skills](https://img.shields.io/badge/Agent%20Skills-SKILL.md-blue)
 ![Lang](https://img.shields.io/badge/talks-EN%20%7C%20RU-red)
-![Version](https://img.shields.io/badge/version-0.3.0-informational)
+![Version](https://img.shields.io/badge/version-0.4.0-informational)
 ![Status](https://img.shields.io/badge/status-early-orange)
 
 </div>
@@ -76,7 +76,7 @@ Copy-Item -Recurse TomViber\tomviber "$HOME\.agents\skills\tomviber"
 
 ## Статус
 
-Ранняя версия. **Пока ни на одном агенте не протестировано систематически** — будем рады issue с вашим опытом (Claude Code, Cursor, Codex и др.).
+Ранняя версия. **Вручную прогнано целиком на Windows 11** (v0.3, все фазы, включая ПАНИКУ и правило двух попыток). Другие платформы и агенты пока систематически не тестировались — будем рады issue с вашим опытом (Claude Code, Cursor, Codex и др.).
 
 ## Структура
 
@@ -87,6 +87,7 @@ tomviber/
     ├── AGENTS.md              # правила проекта: цикл, ПАНИКА, данные, ключи
     ├── MEMORY.md  ARCHITECTURE.md  belt-checklist.md  infra-notes.md
     ├── gitignore.template     # → .gitignore
+    ├── gitattributes.template # → .gitattributes
     ├── dockerignore.template  # → .dockerignore (режим 3)
     └── set-key.bat / set-key.command   # ввод ключа в .env
 ```
