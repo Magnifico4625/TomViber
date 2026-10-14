@@ -1,14 +1,14 @@
-# Защитный пояс TomViber (режим 3)
+# TomViber safety belt (mode 3)
 
-Всё отмечено по умолчанию. Напиши «ок» или номера, которые убрать.
+> Show this to the person in their language. Everything is on by default. They reply "ok"/«ок» or list numbers to remove.
 
-1. [x] **Сохранения (git + теги `ok-N`).** Зачем: откат за секунды. Если выключить: сломанное не вернуть.
-2. [x] **`.gitignore` из шаблона.** Зачем: ключи и данные не утекут. Если выключить: `.env` окажется на GitHub.
-3. [x] **Память проекта (`AGENTS.md`, `MEMORY.md`).** Зачем: завтра агент продолжит с того же места. Если выключить: синдром второго дня.
-4. [x] **Автопроверки (тесты на главные сценарии).** Зачем: поломка видна сразу. Если выключить: узнаешь от пользователей.
-5. [x] **Линтер/форматтер.** Зачем: код читаем для живого разработчика. Если выключить: каша растёт.
-6. [x] **Бэкапы данных** (при каждом `ok-N`, 5 последних; облако — перед миграцией). Если выключить: потеря данных необратима.
-7. [x] **Миграции базы в git.** Зачем: понятно, какая структура к какому коду. Если выключить: откат ломает базу.
-8. [x] **Мини-аудит безопасности** (ключи, RLS, потолок трат). Если выключить: открытая база или счёт за API.
-9. [x] **`Dockerfile` + `.dockerignore`.** Зачем: одинаково везде. Если выключить: «у меня работает».
-10. [x] **`ARCHITECTURE.md`.** Зачем: разработчику не стыдно показать. Если выключить: никто не разберётся.
+1. [x] **Saves (git + `ok-N` tags).** Why: rollback in seconds. If off: broken things can't be brought back.
+2. [x] **`.gitignore` from the template.** Why: keys and data don't leak. If off: `.env` ends up on GitHub.
+3. [x] **Project memory (`AGENTS.md`, `MEMORY.md`).** Why: tomorrow the agent continues where it stopped. If off: second-day syndrome.
+4. [x] **Automated checks (tests for main scenarios).** Why: breakage shows immediately. If off: you learn from users.
+5. [x] **Linter/formatter.** Why: code a real developer can read. If off: the mess grows.
+6. [x] **Data backups** (at every `ok-N`, last 5; cloud — before migrations). If off: data loss is permanent.
+7. [x] **Additive DB migrations in git.** Why: clear which schema matches which code; old code works on new schema. If off: rollback breaks the DB.
+8. [x] **Mini security audit** (keys, RLS, spend cap). If off: an open database or a surprise API bill.
+9. [x] **`Dockerfile` + `.dockerignore`.** Why: same everywhere, no keys baked into the image. If off: "works on my machine".
+10. [x] **`ARCHITECTURE.md`.** Why: not embarrassing to show a developer. If off: nobody can figure it out.

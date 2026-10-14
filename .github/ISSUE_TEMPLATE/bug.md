@@ -1,11 +1,12 @@
 ---
-name: Агент сделал не то
-about: Скилл повёл себя неправильно
+name: The agent did the wrong thing
+about: The skill behaved incorrectly
 labels: bug
 ---
 
-**Агент и версия:** (Claude Code / Cursor / Codex …)
-**Что просили:**
-**Что сделал агент:**
-**Что ожидали:**
-**Фрагмент диалога / лог:**
+**Agent and version:** (Claude Code / Cursor / Codex …)
+**Language you talked in:**
+**What you asked for:**
+**What the agent did:**
+**What you expected:**
+**Dialog excerpt / log:**

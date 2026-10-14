@@ -1,52 +1,60 @@
 <!-- tomviber v1 -->
-# AGENTS.md — правила проекта (TomViber)
+# AGENTS.md — project rules (TomViber)
 
-> Источник правды для любого ИИ-агента. Сначала прочитай этот файл и `MEMORY.md`.
+> Source of truth for any AI agent here. Read this file and `MEMORY.md` first.
+> Talk to the person in their language (from their messages). Project docs in their language; commit messages in English.
 
-## Проект
-- Что делает: <одна фраза>. Для кого: <кто>. Режим: <1 прототип / 2 MVP / 3 всерьёз>.
-- Стек: <...>. Запуск: `start.bat` / `start.command`. Основная ветка: `main`.
+## Project
+- What it does: <one line>. For whom: <who>. Mode: <1 prototype / 2 MVP / 3 serious>.
+- Stack: <...>. Run: `start.bat` / `start.command`. Main branch: `main`.
 
-## Цикл работы
-1. Перед шагом коммит `wip: <что делаю>`. Один шаг, который можно увидеть или потрогать.
-2. Честный отчёт: «собрал», «прогнал сценарий», «проверить не смог». Без приукрашивания.
-3. Стоп-кран: «Готово: [кусок]. Проверил я: [...]. Твоя очередь: [действие], должно [результат]. Иначе — скинь скриншот или текст ошибки. Всё ок — напиши "ок"». В режиме 1 — после готового экрана/функции.
-4. После «ок»: тег `ok-N`; локальная SQLite — дамп `backups/ok-N.db` (храним последние 5); в `MEMORY.md` → «Где остановились» 3 строки.
-5. Замечание человека: сначала правило в `MEMORY.md` → «Грабли», потом код. «А ещё давай…» → `MEMORY.md` → «Потом».
+## Work loop
+1. Before a step: commit `wip: <what I'm doing>`. One step the person can see or touch.
+2. Honest report: "built", "ran the scenario", "couldn't verify". No embellishment.
+3. Stop-crane — let the person check by hand, always with the expected result:
+   EN: "Done: [piece]. I checked: [...]. Your turn: [action], you should see [result]. If not, send a screenshot or the error text. All good? Reply "ok"."
+   RU: «Готово: [кусок]. Проверил я: [...]. Твоя очередь: [действие], должно [результат]. Иначе — скинь скриншот или текст ошибки. Всё ок — напиши "ок"».
+   Mode 1: after a finished screen/feature, not every small change.
+4. After "ok"/«ок»: tag `ok-N`; local SQLite → dump `backups/ok-N.db` (keep last 5); `MEMORY.md` → "Where we stopped", 3 lines.
+5. Person's correction: first a rule in `MEMORY.md` → "Pitfalls", then code. "Also let's…" → `MEMORY.md` → "Later".
 
-## ПАНИКА / откат / «верни как было»
-- Сообщение только из этого слова → откатывай сразу. Слово внутри длинной фразы → один вопрос: «Похоже, тебе нужен откат к последнему рабочему состоянию. Всё текущее сохраню отдельно. Откатываем? (да/нет)».
-- Команды по одной, проверяй результат каждой, без `&&`. Ничего не удаляй:
+## PANIC / undo / revert («ПАНИКА», «откат», «верни как было»; any case)
+- Message is just that word → roll back now. Word inside a longer message → ask once:
+  EN: "Looks like you want to roll back to the last working state. I'll save everything current separately. Roll back? (yes/no)"
+  RU: «Похоже, тебе нужен откат к последнему рабочему состоянию. Всё текущее сохраню отдельно. Откатываем? (да/нет)»
+- Run one command at a time, check each result, no `&&`. Delete nothing:
 ```
 git branch --show-current
 git switch -c rescue-YYYYMMDD-HHMM
 git add -A
-git commit --allow-empty -m "rescue: состояние до отката"
-git switch <основная-ветка>
+git commit --allow-empty -m "rescue: state before rollback"
+git switch <main-branch>
 git tag -l 'ok-*' --sort=-v:refname
-git reset --hard <последний-тег-ok>
+git reset --hard <latest-ok-tag>
 ```
-- Запусти проект, доложи одной фразой: куда откатил, что в `rescue-*`, затронута ли база.
-- Откат кода базу не трогает. Восстановление базы: сначала текущую в `backups/rescue-<время>`, потом дамп. В MVP с живыми людьми это единственный случай, когда ПАНИКА сначала спрашивает.
+- Start the project; report in one sentence: where you rolled back to, what's in `rescue-*`, whether the DB is affected.
+- Code rollback doesn't touch the DB. DB restore: first save current DB to `backups/rescue-<time>`, then restore the dump. In an MVP with real users this is the ONLY case where PANIC asks first.
 
-## Правило двух попыток
-Баг не чинится со 2-й попытки → без костылей и без тихого отката. Скажи: «Со 2-й попытки не получилось. Рекомендую вернуться к последнему рабочему состоянию (текущее сохраню отдельно). Ответь "да", или напиши, что попробовать иначе».
+## Two-attempt rule
+Bug not fixed on the 2nd try → no hacks, no silent rollback. Say:
+EN: "Didn't work on the 2nd try. I recommend going back to the last working state (I'll save the current one separately). Reply "yes", or tell me what to try instead."
+RU: «Со 2-й попытки не получилось. Рекомендую вернуться к последнему рабочему состоянию (текущее сохраню отдельно). Ответь "да", или напиши, что попробовать иначе».
 
-## Данные
-- Не живут в git: `.env`, базы, `data/`, `backups/`, `uploads/`, `*.session`. В git — миграции и тестовые данные без личной информации.
-- SQLite: дамп только через API языка (`sqlite3.backup` в Python, `db.backup()` в better-sqlite3 или `VACUUM INTO`), не копированием файла.
-- Миграции только добавляют (новые колонки/таблицы). Удаление/переименование — отдельный шаг: дамп + согласие человека.
-- Облачная БД: дамп перед миграцией; убедись, что у тарифа есть бэкапы.
+## Data
+- Never in git: `.env`, databases, `data/`, `backups/`, `uploads/`, `*.session`. In git: migrations and test data without personal info.
+- SQLite dumps only via the language API (Python `sqlite3` `.backup`, better-sqlite3 `db.backup()`, or `VACUUM INTO`) — not file copy, not the sqlite3 CLI.
+- Migrations are additive only (new columns/tables). Delete/rename = separate step: dump + person's consent.
+- Cloud DB: dump before a migration; make sure the plan has backups.
 
-## Ключи
-- Только в `.env` (+ `.env.example` без значений). Никогда в код, коммиты, `MEMORY.md`.
-- Ввод — через скрипт (`set-key.bat` / `set-key.command`, `chmod +x`): окно, вставить ключ, скрипт пишет в `.env`.
-- Прислали ключ в чат — не ругай, вставь; платный ключ предложи потом перевыпустить.
+## Keys
+- Only in `.env` (+ `.env.example` without values). Never in code, commits, `MEMORY.md`.
+- All keys entered via `set-key.bat` / `set-key.command` (`chmod +x`): window opens, paste key, script writes `.env`.
+- Key pasted in chat anyway → don't scold, insert it; for a paid key suggest reissuing later.
 
-## Пакеты
-Перед установкой нового пакета проверь реестр (дата создания, загрузки, ссылка на репозиторий). Подозрительно новый или малоизвестный не ставь без ведома человека.
+## Packages
+Before installing a new package, check the registry (creation date, downloads, repo link). Suspiciously new or obscure → not without the person knowing.
 
-## Ворота аудита (по действиям, не по словам)
-Перед деплоем, публичным push, подключением домена, запуском бота для других людей — мини-аудит из Фазы 6 скилла `tomviber`.
-Нет скилла — минимум: ключи не в коде/истории, RLS/доступы закрыты, потолок трат у платных API.
-Платное и публикация — только с явного «да» и названной ценой.
+## Audit gate (triggered by actions, not words)
+Before deploy, public push, attaching a domain, launching a bot for other people → mini-audit from Phase 6 of the `tomviber` skill.
+No skill available → minimum: no keys in code/history, RLS/access locked down, spend cap on paid APIs.
+Anything paid or public — only after an explicit "yes" and a stated price.

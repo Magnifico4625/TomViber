@@ -1,19 +1,19 @@
-# Скопируй в корень проекта как .gitignore
-# Секреты
+# Copy to the project root as .gitignore
+# Secrets
 .env
 .env.*
 !.env.example
 *.pem
 *.key
-# Сессии Telegram-юзерботов: это полный доступ к аккаунту
+# Telegram userbot sessions = full account access
 *.session
-# Google/OAuth ключи
+# Google/OAuth credentials
 credentials.json
 token.json
 client_secret*.json
 service-account*.json
 
-# Данные не живут в git (миграции *.sql НЕ игнорируем)
+# Data never lives in git (do NOT ignore *.sql — migrations)
 *.db
 *.sqlite
 *.sqlite3
@@ -24,7 +24,7 @@ data/
 backups/
 uploads/
 
-# Зависимости и мусор
+# Dependencies and build output
 node_modules/
 dist/
 build/

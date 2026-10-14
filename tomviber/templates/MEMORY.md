@@ -1,17 +1,17 @@
-# MEMORY.md — память проекта
+# MEMORY.md — project memory
 
-> Никаких ключей и паролей в этом файле.
+> Write this file in the person's language. Never put keys or passwords here.
 
-## Где остановились
-- Сделано: 
-- Дальше: 
-- Не доделано: 
+## Where we stopped
+- Done: 
+- Next: 
+- Not finished: 
 
-## Грабли (правила из замечаний человека)
+## Pitfalls (rules from the person's corrections)
 - 
 
-## Решения
-- <дата>: <что решили и почему>
+## Decisions
+- <date>: <what we decided and why>
 
-## Потом (парковка идей)
+## Later (parked ideas)
 - 

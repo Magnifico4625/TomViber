@@ -1,25 +1,27 @@
 # ARCHITECTURE.md
 
-## Коротко
-<Что за система, 2–3 предложения.>
+> Write this file in the person's language.
 
-## Части
-| Часть | Что делает | Где лежит |
+## In short
+<What the system is, 2–3 sentences.>
+
+## Parts
+| Part | What it does | Where it lives |
 |---|---|---|
 | | | |
 
-## Данные
-- База: <SQLite / Postgres / ...>. Миграции: `<путь>`.
-- Бэкапы: `backups/ok-N.*` (последние 5) + еженедельная копия вне проекта.
+## Data
+- Database: <SQLite / Postgres / ...>. Migrations (additive only): `<path>`.
+- Backups: `backups/ok-N.*` (last 5) + weekly copy outside the project.
 
-## Внешние сервисы
-| Сервис | Зачем | Ключ в `.env` | Тариф / лимиты |
+## External services
+| Service | Why | Key in `.env` | Plan / limits |
 |---|---|---|---|
 | | | | |
 
-## Как запускается
-- Локально: `start.bat` / `start.command`.
-- Прод: <где и как>.
+## How it runs
+- Locally: `start.bat` / `start.command`.
+- Production: <where and how>.
 
-## Известные ограничения
+## Known limitations
 - 

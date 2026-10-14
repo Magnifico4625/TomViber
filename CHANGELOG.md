@@ -1,38 +1,49 @@
 # Changelog
 
-Формат — [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/), версии — [SemVer](https://semver.org/lang/ru/).
+Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [SemVer](https://semver.org/).
+
+## [0.3.0] — 2026-10-14
+
+### Changed
+- English is now the primary language: `SKILL.md` and all templates rewritten in English; the agent talks to the person in their own language.
+- User-facing canned phrases (Phase 1 retell, stop-crane report, PANIC question, two-attempt phrase, PANIC reminder, safety-belt prompt) ship in EN and RU.
+- PANIC triggers in both languages: PANIC/ПАНИКА, undo/откат, revert/«верни как было».
+- Files generated into the person's project are written in their language; commit messages in English.
+- `set-key` scripts show bilingual prompts.
+- README in English; Russian moved to `README.ru.md`; new `README.zh-CN.md`. CONTRIBUTING, CHANGELOG, issue templates and repo description in English.
+
+### Added
+- Frontmatter description includes Russian trigger phrases so the skill fires on Russian requests.
 
 ## [0.2.0] — 2026-10-14
 
-### Изменено
-- Переименование: **TomViber** (репозиторий `TomViber`, папка и `name`: `tomviber`, маркер `<!-- tomviber v1 -->` в `AGENTS.md`).
-- ПАНИКА: одиночное слово — откат сразу; внутри фразы — один вопрос. Команды отката по одной, ветка `rescue-YYYYMMDD-HHMM`, `--allow-empty`, поиск последнего `ok`-тега.
-- Правило двух попыток: без тихого отката, рекомендация + «да».
-- Все ключи — через `set-key.bat` / `set-key.command`; исключение «токен бота в чат» убрано.
-- Дампы: только после «ок» (`backups/ok-N.*`, 5 последних), без дампа при запуске; облачная БД — дамп перед миграцией + бэкапы тарифа.
-- Фаза 6 — ворота аудита по действиям (деплой, публичный push, домен, бот для других).
+### Changed
+- Renamed to **TomViber** (repo `TomViber`, folder and `name`: `tomviber`, marker `<!-- tomviber v1 -->` in `AGENTS.md`).
+- PANIC: a bare trigger word rolls back immediately; inside a longer message, one confirmation question. Rollback commands run one at a time, branch `rescue-YYYYMMDD-HHMM`, `--allow-empty`, latest `ok` tag lookup.
+- Two-attempt rule: no silent rollback — a recommendation plus "yes".
+- All keys via `set-key.bat` / `set-key.command`; the "bot token in chat is fine" exception removed.
+- Dumps only after "ok" (`backups/ok-N.*`, last 5), no dump at startup; cloud DB — dump before migrations plus plan backups.
+- Phase 6 is an audit gate triggered by actions (deploy, public push, domain, bot for other people).
 
-### Добавлено
-- Маркер в `AGENTS.md`; чужой `AGENTS.md` дополняется в конец, а не перезаписывается.
-- Ветка 3: поиск ключей до снимка (только файл+строка), `git rm --cached`, перевыпуск ключей.
-- Только добавляющие миграции; восстановление базы через `backups/rescue-<время>`.
-- SQLite-дампы через API языка (`backup` / `VACUUM INTO`).
-- Проверка пакета по реестру перед установкой.
-- Фаза 0: проверка `git user.name`/`user.email`.
-- `.gitignore`: OAuth-файлы, `uploads/`, `dist/`, `build/`, `.next/`; новый `dockerignore.template`; шаблоны `set-key`.
-- README: «было → стало», установка одной фразой и ZIP, пример, FAQ, честный статус.
+### Added
+- Marker in `AGENTS.md`; a foreign `AGENTS.md` is appended to, never overwritten.
+- Branch 3: secret scan before snapshot (file+line only), `git rm --cached`, key reissue.
+- Additive-only migrations; DB restore saves current DB to `backups/rescue-<time>` first.
+- SQLite dumps via the language API (`backup` / `VACUUM INTO`).
+- Package registry check before install.
+- Phase 0: check git `user.name` / `user.email`.
+- `.gitignore`: OAuth files, `uploads/`, `dist/`, `build/`, `.next/`; new `dockerignore.template`; `set-key` templates.
+- README: before → after, one-phrase and ZIP install, first-message example, FAQ, honest status.
 
 ## [0.1.0] — 2026-10-14
 
-### Добавлено
-- `SKILL.md`: фазы 0–6, три режима, ветка 3 «код уже есть», порядок фаз.
-- `templates/`: `AGENTS.md` (цикл, ПАНИКА с точными командами отката, правило двух попыток), `MEMORY.md`, `ARCHITECTURE.md`, `belt-checklist.md`, `infra-notes.md`, `gitignore.template`.
-- Правило «Данные не живут в git».
-- Бэкапы: при каждом `ok`, перед миграцией и при запуске; последние 7.
-- Ввод денежных ключей через скрипт в терминале, а не через чат.
+### Added
+- `SKILL.md`: phases 0–6, three modes, Branch 3 "code already exists", phase order.
+- `templates/`: `AGENTS.md`, `MEMORY.md`, `ARCHITECTURE.md`, `belt-checklist.md`, `infra-notes.md`, `gitignore.template`.
+- "Data never lives in git" rule; money-related keys entered via a terminal script.
 
-### Изменено
-- Фаза 5, ПАНИКА и две попытки перенесены в `templates/AGENTS.md` — единый источник правды.
-- Description: исключение для «показать людям / выложить / сделать серьёзнее»; текст сокращён.
-- Ветка 3: сначала `.gitignore`, потом снимок и тег `ok-0`.
-- Лицензии: MIT/Apache 2.0/BSD; GPL/AGPL — только с объяснением последствий.
+### Changed
+- Phase 5, PANIC and the two-attempt rule moved into `templates/AGENTS.md` (single source of truth).
+- Description: exception for "show people / publish / make it serious"; trimmed.
+- Branch 3: `.gitignore` first, then snapshot and `ok-0` tag.
+- Licenses: MIT/Apache 2.0/BSD; GPL/AGPL only with explained consequences.

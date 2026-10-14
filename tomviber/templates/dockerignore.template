@@ -1,4 +1,4 @@
-# Режим 3: скопируй в корень как .dockerignore, чтобы COPY . . не запёк ключи и данные в образ
+# Mode 3: copy to the project root as .dockerignore so `COPY . .` never bakes keys or data into the image
 .env
 .env.*
 !.env.example

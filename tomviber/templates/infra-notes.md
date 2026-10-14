@@ -1,21 +1,21 @@
-# Инфраструктура: варианты и подводные камни
+# Infrastructure: options and pitfalls
 
-> Тарифы меняются. Перед советом сверься с актуальными условиями. Платное — только с явного «да» и названной ценой.
+> Plans change — check current terms before advising. Anything paid only after an explicit "yes" and a stated price.
 
-## Фронтенд / статика
-- **Cloudflare Pages, Netlify, Vercel** — бесплатный старт. Камень: у Vercel бесплатный план только для некоммерческого использования.
+## Frontend / static
+- **Cloudflare Pages, Netlify, Vercel** — free start. Pitfall: Vercel's free plan is non-commercial only.
 
-## Бэкенд / боты
-- **Render, Railway, Fly.io** — просто, но бесплатные инстансы засыпают или ограничены по часам/кредитам.
-- **VPS** (дёшево, полный контроль) — нужен уход: обновления, файрвол, бэкапы. Только режим 3.
+## Backend / bots
+- **Render, Railway, Fly.io** — simple, but free instances sleep or are limited by hours/credits.
+- **VPS** (cheap, full control) — needs care: updates, firewall, backups. Mode 3 only.
 
-## Базы данных
-- **SQLite** — режим 1 и небольшие проекты. Файл базы в `data/`, в `.gitignore`.
-- **Supabase / Neon** — бесплатный Postgres. Камни: в Supabase **обязательно включи RLS**; бесплатные проекты могут засыпать; автобэкапов на бесплатных тарифах часто нет — делай свои дампы перед миграциями.
+## Databases
+- **SQLite** — mode 1 and small projects. DB file in `data/`, ignored by git. Dumps via the language API.
+- **Supabase / Neon** — free Postgres. Pitfalls: in Supabase **always enable RLS**; free projects may pause; free plans often have no automatic backups — dump before migrations.
 
-## LLM API
-- Всегда ставь **потолок трат** в кабинете провайдера. Ключ только на сервере, никогда на фронтенде.
+## LLM APIs
+- Always set a **spend cap** in the provider dashboard. Key on the server only, never in the frontend.
 
 ## Telegram
-- Токен бота — обычный секрет в `.env`.
-- Сессии юзерботов (`*.session`) = полный доступ к аккаунту. Только в `.gitignore`, никому не пересылать.
+- Bot token is a regular secret in `.env`.
+- Userbot sessions (`*.session`) = full account access. Always ignored by git, never forward them.

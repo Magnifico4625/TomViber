@@ -1,8 +1,8 @@
 ---
-name: Идея
-about: Предложить улучшение
+name: Idea
+about: Suggest an improvement
 labels: enhancement
 ---
 
-**Какую боль новичка решает:**
-**Предложение:**
+**Which beginner pain does it solve:**
+**Proposal:**
